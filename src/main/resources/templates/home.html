@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Boozedil</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand glyphicon glyphicon-glass" href="/">BOOZEDIL</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <!--<ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>-->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" id="loginModal"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="jumbotron">
+    <div class="container text-center">
+        <h1>BOOZ-E-DIL</h1>
+        <p>Delivering Good Times At Your Door Step</p>
+    </div>
+</div>
+
+<div class="container bg-3 text-center">
+    <h3>Products We Deliver</h3><br />
+    <div class="row">
+        <div class="col-sm-3">
+            <p>BEER</p>
+            <img src="/image/beer.jpeg"  style="width:100%" alt="Image" />
+        </div>
+        <div class="col-sm-3">
+            <p>GIN</p>
+            <img src="/image/gin.jpeg"  style="width:100%" alt="Image" />
+        </div>
+        <div class="col-sm-3">
+            <p>VERMOUTH</p>
+            <img src="/image/vermouth.jpg"  style="width:100%" alt="Image" />
+        </div>
+        <div class="col-sm-3">
+            <p>BRANDY</p>
+            <img src="/image/brandy.jpg"  style="width:100%" alt="Image" />
+        </div>
+    </div>
+</div><br />
+
+<div class="container bg-3 text-center">
+    <div class="row">
+        <div class="col-sm-3">
+            <p>WHISKEY</p>
+            <img src="/image/tequila.jpeg" class="img-responsive" style="width:100%" alt="Image" />
+        </div>
+        <div class="col-sm-3">
+            <p>WINE</p>
+            <img src="/image/wine.jpeg" class="img-responsive" style="width:100%" alt="Image" />
+        </div>
+        <div class="col-sm-3">
+            <p>VODKA</p>
+            <img src="/image/vodka.jpeg" class="img-responsive" style="width:100%" alt="Image" />
+        </div>
+        <div class="col-sm-3">
+            <p>RUM</p>
+            <img src="/image/rum.jpeg" class="img-responsive" style="width:100%" alt="Image" />
+        </div>
+    </div>
+</div><br /><br />
+
+<!-- Login Modal Block-->
+<div class="modal fade" id="myModalLogin" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="padding:35px 50px;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+            </div>
+            <div class="modal-body" style="padding:40px 50px;">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+                        <input type="text" class="form-control" id="usrname" placeholder="Enter email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                        <input type="text" class="form-control" id="psw" placeholder="Enter password" />
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="" />Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                <p>Not a member? <a href="#" id="signupModal">Sign Up</a></p>
+                <p>Forgot <a href="#">Password?</a></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Signup Modal Block-->
+<div class="modal fade" id="myModalSingup" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="padding:35px 50px;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+            </div>
+            <div class="modal-body" style="padding:40px 50px;">
+                <form role="form" action ="#">
+                    <div class="form-group">
+                        <label for="name"><span class="glyphicon glyphicon-user"></span>Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Your Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><span class="glyphicon glyphicon-envelope"></span>Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Your Email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="usrnameNew"><span class="glyphicon glyphicon-user"></span> Username</label>
+                        <input type="text" class="form-control" id="usrnameNew" placeholder="Enter your username" />
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" />
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="" />Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#loginModal").click(function(){
+            $("#myModalLogin").modal();
+        });
+    });
+</script>
+
+<script>
+
+    $(document).ready(function(){
+        $("#signupModal").click(function(){
+            $("#myModalLogin").hide();
+            $("#myModalSingup").modal();
+        });
+    });
+
+</script>
+
+
+<footer class="container-fluid text-center">
+    <div class="row">
+        <div class="col-sm-2">
+            <p>About Us</p>
+        </div>
+
+        <div class="col-sm-2">
+            <p>Support</p>
+        </div>
+
+        <div class="col-sm-2">
+            <p>Terms Conditions</p>
+        </div>
+
+        <div class="col-sm-2">
+            <p>Team</p>
+        </div>
+
+        <div class="col-sm-2">
+            <p>Careers</p>
+        </div>
+
+        <div class="col-sm-2">
+            <p>Gallery</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

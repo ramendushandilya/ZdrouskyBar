@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AuthController {
 
-    @RequestMapping("/")
+    /*@RequestMapping("/")
     public String showHome() {
-        return "index";
-    }
+        return "home";
+    }*/
 
-    @RequestMapping("/index")
+    /*@RequestMapping("/index")
     public String showIndex() {
         return "index";
     }
@@ -24,5 +24,5 @@ public class AuthController {
     public String showRegister() {
         return "register";
     }
-
+*/
 }
