@@ -1,217 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Boozedil</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace ="common/commanheader :: common-header" />
+
 <body>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand glyphicon glyphicon-glass" href="/">BOOZEDIL</a>
+            <a class="navbar-brand" href="/">BOOZEDIL</a>
         </div>
+
+        <!-- This will replace the quick links on footer -->
         <div class="collapse navbar-collapse" id="myNavbar">
-            <!--<ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>-->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" id="loginModal"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal" ><span class="glyphicon glyphicon-info-sign" ></span> About</a></li>
             </ul>
         </div>
+
     </div>
 </nav>
 
-<div class="jumbotron">
-    <div class="container text-center">
-        <h1>BOOZ-E-DIL</h1>
-        <p>Delivering Good Times At Your Door Step</p>
+<div class="cotn_principal">
+    <div class="cont_centrar">
+        <div class="cont_login">
+            <div class="cont_info_log_sign_up">
+                <div class="col_md_login">
+                    <div class="cont_ba_opcitiy">
+                        <h2>LOGIN</h2>
+                        <p>Please Login to continue</p>
+                        <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
+                    </div>
+                </div>
+                <div class="col_md_sign_up">
+                    <div class="cont_ba_opcitiy">
+                        <h2>SIGN UP</h2>
+                        <p>Don't have an account? Register here</p>
+                        <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cont_back_info">
+                <div class="cont_img_back_grey">
+                    <img src="/images/form.jpg" alt="" />
+                </div>
+            </div>
+            <div class="cont_forms" >
+                <div class="cont_img_back_">
+                    <img src="/images/form.jpg" alt="" />
+                </div>
+                <div class="cont_form_login">
+                    <a href="#" onclick="ocultar_login_sign_up()" ><i class="material-icons">&#xE5C4;</i></a>
+                    <h2>LOGIN</h2>
+                    <input type="text" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
+                </div>
+                <div class="cont_form_sign_up">
+                    <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+                    <h2>SIGN UP</h2>
+                    <input type="text" placeholder="Email" />
+                    <input type="text" placeholder="User" />
+                    <input type="password" placeholder="Password" />
+                    <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="container bg-3 text-center">
-    <h3>Products We Deliver</h3><br />
-    <div class="row">
-        <div class="col-sm-3">
-            <p>BEER</p>
-            <img src="/image/beer.jpeg"  style="width:100%" alt="Image" />
-        </div>
-        <div class="col-sm-3">
-            <p>GIN</p>
-            <img src="/image/gin.jpeg"  style="width:100%" alt="Image" />
-        </div>
-        <div class="col-sm-3">
-            <p>VERMOUTH</p>
-            <img src="/image/vermouth.jpg"  style="width:100%" alt="Image" />
-        </div>
-        <div class="col-sm-3">
-            <p>BRANDY</p>
-            <img src="/image/brandy.jpg"  style="width:100%" alt="Image" />
-        </div>
-    </div>
-</div><br />
-
-<div class="container bg-3 text-center">
-    <div class="row">
-        <div class="col-sm-3">
-            <p>WHISKEY</p>
-            <img src="/image/tequila.jpeg" class="img-responsive" style="width:100%" alt="Image" />
-        </div>
-        <div class="col-sm-3">
-            <p>WINE</p>
-            <img src="/image/wine.jpeg" class="img-responsive" style="width:100%" alt="Image" />
-        </div>
-        <div class="col-sm-3">
-            <p>VODKA</p>
-            <img src="/image/vodka.jpeg" class="img-responsive" style="width:100%" alt="Image" />
-        </div>
-        <div class="col-sm-3">
-            <p>RUM</p>
-            <img src="/image/rum.jpeg" class="img-responsive" style="width:100%" alt="Image" />
-        </div>
-    </div>
-</div><br /><br />
-
-<!-- Login Modal Block-->
-<div class="modal fade" id="myModalLogin" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header" style="padding:35px 50px;">
+            <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+                <h4 class="modal-title">About</h4>
             </div>
-            <div class="modal-body" style="padding:40px 50px;">
-                <form role="form">
-                    <div class="form-group">
-                        <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-                        <input type="text" class="form-control" id="usrname" placeholder="Enter email" />
-                    </div>
-                    <div class="form-group">
-                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-                        <input type="text" class="form-control" id="psw" placeholder="Enter password" />
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" value="" />Remember me</label>
-                    </div>
-                    <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
-                </form>
+            <div class="modal-body">
+                <p>About section</p>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                <p>Not a member? <a href="#" id="signupModal">Sign Up</a></p>
-                <p>Forgot <a href="#">Password?</a></p>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
-
     </div>
 </div>
-
-
-<!-- Signup Modal Block-->
-<div class="modal fade" id="myModalSingup" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header" style="padding:35px 50px;">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
-            </div>
-            <div class="modal-body" style="padding:40px 50px;">
-                <form role="form" action ="#">
-                    <div class="form-group">
-                        <label for="name"><span class="glyphicon glyphicon-user"></span>Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Your Name" />
-                    </div>
-                    <div class="form-group">
-                        <label for="email"><span class="glyphicon glyphicon-envelope"></span>Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter Your Email" />
-                    </div>
-                    <div class="form-group">
-                        <label for="usrnameNew"><span class="glyphicon glyphicon-user"></span> Username</label>
-                        <input type="text" class="form-control" id="usrnameNew" placeholder="Enter your username" />
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" />
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" value="" />Remember me</label>
-                    </div>
-                    <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<script>
-    $(document).ready(function(){
-        $("#loginModal").click(function(){
-            $("#myModalLogin").modal();
-        });
-    });
-</script>
-
-<script>
-
-    $(document).ready(function(){
-        $("#signupModal").click(function(){
-            $("#myModalLogin").hide();
-            $("#myModalSingup").modal();
-        });
-    });
-
-</script>
-
-
-<footer class="container-fluid text-center">
-    <div class="row">
-        <div class="col-sm-2">
-            <p>About Us</p>
-        </div>
-
-        <div class="col-sm-2">
-            <p>Support</p>
-        </div>
-
-        <div class="col-sm-2">
-            <p>Terms Conditions</p>
-        </div>
-
-        <div class="col-sm-2">
-            <p>Team</p>
-        </div>
-
-        <div class="col-sm-2">
-            <p>Careers</p>
-        </div>
-
-        <div class="col-sm-2">
-            <p>Gallery</p>
-        </div>
-    </div>
-</footer>
 
 </body>
+
+<script>
+
+    function cambiar_login() {
+        document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";
+        document.querySelector('.cont_form_login').style.display = "block";
+        document.querySelector('.cont_form_sign_up').style.opacity = "0";
+
+        setTimeout(function(){  document.querySelector('.cont_form_login').style.opacity = "1"; },400);
+
+        setTimeout(function(){
+            document.querySelector('.cont_form_sign_up').style.display = "none";
+        },200);
+    }
+
+    function cambiar_sign_up(at) {
+        document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_sign_up";
+        document.querySelector('.cont_form_sign_up').style.display = "block";
+        document.querySelector('.cont_form_login').style.opacity = "0";
+
+        setTimeout(function(){  document.querySelector('.cont_form_sign_up').style.opacity = "1";
+        },100);
+
+        setTimeout(function(){   document.querySelector('.cont_form_login').style.display = "none";
+        },400);
+
+
+    }
+
+
+
+    function ocultar_login_sign_up() {
+
+        document.querySelector('.cont_forms').className = "cont_forms";
+        document.querySelector('.cont_form_sign_up').style.opacity = "0";
+        document.querySelector('.cont_form_login').style.opacity = "0";
+
+        setTimeout(function(){
+            document.querySelector('.cont_form_sign_up').style.display = "none";
+            document.querySelector('.cont_form_login').style.display = "none";
+        },500);
+
+    }
+
+</script>
+
 </html>

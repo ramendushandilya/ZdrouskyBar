@@ -1,62 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Boozedil</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.0-alpha/css/bootstrap-select.css" />
-
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace ="common/commanheader :: common-header"></head>
 <body>
 
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand glyphicon glyphicon-glass" href="#">BOOZEDIL</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/support" ><span class="glyphicon glyphicon-phone-alt" ></span> Support</a></li>
-                <li><a href="/cart" ><span class="glyphicon glyphicon-shopping-cart" ></span> Cart</a></li>
-                <li><a href="/account" ><span class="glyphicon glyphicon-user" ></span> Account</a></li>
-                <li><a href="/logout" ><span class="glyphicon glyphicon-log-out" ></span> Logout</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<div class="cotn_principal">
 
-<!--<div class="jumbotron">-->
-<br/><br/>
-    <div class="container text-center">
+    <div th:replace="common/commanheader :: postLoginNavBar"></div>
+
+    <div class="col_md_login">test</div>
+    <!--<div class="container text-center">
         <div class="col-lg-12">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search for Booze points" />
                 <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">BURP!</button>
-            </span>
+                    <button class="btn btn-secondary" type="button">BURP!</button>
+                </span>
             </div>
             <br/><br/>
             <div class="col-lg-12">
                 <p>Place for caraousel</p>
             </div>
         </div>
-    </div>
-<!--</div>-->
+    </div>-->
 
-<br/><br/><br/>
-
-<div class="jumbotron">
-
-    <div class="container-fluid bg-3 text-center">
+   <!-- <div class="container-fluid bg-3 text-center">
         <h3>Booze Points Near You</h3><br />
         <div class="row">
             <div class="col-sm-3">
@@ -98,8 +65,55 @@
             </div>
         </div>
     </div><br /><br />
+-->
 
+<div th:replace="common/commanheader :: footer"></div>
 </div>
-
 </body>
+
+<script>
+
+    function cambiar_login() {
+        document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";
+        document.querySelector('.cont_form_login').style.display = "block";
+        document.querySelector('.cont_form_sign_up').style.opacity = "0";
+
+        setTimeout(function(){  document.querySelector('.cont_form_login').style.opacity = "1"; },400);
+
+        setTimeout(function(){
+            document.querySelector('.cont_form_sign_up').style.display = "none";
+        },200);
+    }
+
+    function cambiar_sign_up(at) {
+        document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_sign_up";
+        document.querySelector('.cont_form_sign_up').style.display = "block";
+        document.querySelector('.cont_form_login').style.opacity = "0";
+
+        setTimeout(function(){  document.querySelector('.cont_form_sign_up').style.opacity = "1";
+        },100);
+
+        setTimeout(function(){   document.querySelector('.cont_form_login').style.display = "none";
+        },400);
+
+
+    }
+
+
+
+    function ocultar_login_sign_up() {
+
+        document.querySelector('.cont_forms').className = "cont_forms";
+        document.querySelector('.cont_form_sign_up').style.opacity = "0";
+        document.querySelector('.cont_form_login').style.opacity = "0";
+
+        setTimeout(function(){
+            document.querySelector('.cont_form_sign_up').style.display = "none";
+            document.querySelector('.cont_form_login').style.display = "none";
+        },500);
+
+    }
+
+</script>
+
 </html>

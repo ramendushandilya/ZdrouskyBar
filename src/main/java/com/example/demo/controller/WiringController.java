@@ -17,11 +17,6 @@ public class WiringController {
         return "userLanding";
     }
 
-    @RequestMapping("/support")
-    public String showSupport() {
-        return "support";
-    }
-
     @RequestMapping("/cart")
     public String showCart() {
         return "cart";
@@ -37,9 +32,18 @@ public class WiringController {
         return "home";
     }
 
+    @RequestMapping("/about")
+    public String showAbout() {
+        return "about";
+    }
+
     @RequestMapping("/logout")
     public String logOut() {
-        System.out.print("User logged out");
         return "home";
+    }
+
+    @RequestMapping("/login")
+    public String login() {
+        return "userLanding";
     }
 }
